@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+:root{
+  --lavender:#d9c5e4;
+  --lavender-2:#efe7f4;
+  --purple:#70437d;
+  --purple-dark:#4d2e57;
+  --ink:#352b38;
+  --cream:#fbf8fc;
+  --white:#fff;
+  --line:#e7ddea;
+  --shadow:0 18px 50px rgba(77,46,87,.10);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--cream);
+  font-family:"DM Sans",system-ui,sans-serif;
+  line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+.topbar{
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 6vw;
+  background:rgba(251,248,252,.90);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.brand-mini{
+  font-family:"Playfair Display",serif;
+  font-size:1.25rem;color:var(--purple-dark);
+}
+nav{display:flex;gap:26px;font-size:.92rem}
+nav a:hover{color:var(--purple)}
+
+.hero{
+  min-height:720px;
+  padding:90px 7vw;
+  display:grid;grid-template-columns:1.05fr .95fr;
+  align-items:center;gap:50px;
+  background:
+    radial-gradient(circle at 85% 15%, #eadcf0 0 12%, transparent 35%),
+    linear-gradient(135deg,#fbf8fc 0%,#f1e8f4 100%);
+}
+.hero-copy{max-width:650px}
+.eyebrow{
+  letter-spacing:.18em;font-size:.72rem;font-weight:600;color:var(--purple);
+}
+h1,h2,h3{
+  font-family:"Playfair Display",serif;
+  line-height:1.15;color:var(--purple-dark);
+}
+h1{font-size:clamp(3rem,6vw,5.6rem);margin:18px 0 24px}
+h2{font-size:clamp(2.2rem,4vw,3.5rem);margin:12px 0 20px}
+h3{font-size:1.55rem;margin:12px 0 8px}
+.hero-copy p{font-size:1.1rem;max-width:580px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.button{
+  display:inline-block;padding:13px 22px;border-radius:999px;
+  font-weight:600;border:1px solid var(--purple);
+  transition:.2s transform,.2s box-shadow;
+}
+.button:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.primary{background:var(--purple);color:white}
+.secondary{color:var(--purple);background:transparent}
+.hero-mark{display:flex;align-items:center;justify-content:center;position:relative}
+.hero-mark .halo{
+  position:absolute;width:min(520px,80vw);aspect-ratio:1;border-radius:50%;
+  background:var(--lavender-2);box-shadow:var(--shadow);
+}
+.hero-mark img{position:relative;width:min(470px,78vw);mix-blend-mode:multiply;border-radius:50%}
+
+.intro,.products,.care,.cta{padding:105px 7vw}
+.intro{
+  display:grid;grid-template-columns:1fr 1fr;gap:70px;
+  max-width:1300px;margin:auto;
+}
+.intro p{font-size:1.08rem;align-self:end}
+
+.products{background:#fff}
+.section-heading{text-align:center;max-width:720px;margin:0 auto 55px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1250px;margin:auto}
+.card{
+  padding:30px;border:1px solid var(--line);border-radius:24px;
+  background:var(--cream);box-shadow:0 10px 30px rgba(77,46,87,.05);
+}
+.card-icon{
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  background:var(--lavender-2);color:var(--purple);font-size:1.35rem;
+}
+.card p{color:#625a64}
+.tag{
+  display:inline-block;margin-top:12px;padding:5px 11px;border-radius:999px;
+  background:var(--lavender-2);color:var(--purple);font-size:.78rem;
+}
+
+.care{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center;
+  max-width:1250px;margin:auto;
+}
+.care-image img{width:min(390px,100%);display:block;margin:auto;border-radius:50%;box-shadow:var(--shadow)}
+.care-copy li{margin:10px 0}
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,#e7d8ed,#f7f0f8);
+}
+.cta p{max-width:650px;margin:0 auto 28px}
+footer{
+  display:flex;justify-content:space-between;
+  padding:28px 7vw;background:var(--purple-dark);color:#fff;
+  font-size:.9rem;
+}
+
+@media(max-width:900px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;padding-top:65px}
+  .hero-mark{order:-1}
+  .intro,.care{grid-template-columns:1fr;gap:35px}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .hero,.intro,.products,.care,.cta{padding-left:6vw;padding-right:6vw}
+  .cards{grid-template-columns:1fr}
+  h1{font-size:3.1rem}
+  footer{flex-direction:column;gap:8px}
+}
